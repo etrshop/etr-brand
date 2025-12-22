@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page page--checkout">
+  <div class="bg"></div>
+  <div class="vignette"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Voltar para o ENTER">
+      <img class="brand__logo" src="assets/logo.png" alt="ETR logo">
+    </a>
+
+    <div class="topbar__right">
+      <a class="ghostLink" href="shop.html">← Back to shop</a>
+      <button class="cartBtn" type="button" aria-label="Abrir carrinho">
+        <span class="cartBtn__icon">🛒</span>
+        <span class="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="checkout">
+    <section class="checkoutCard">
+      <h1 class="checkoutTitle">Checkout</h1>
+      <p class="checkoutSub">Complete your order with Stripe.</p>
+
+      <div id="checkoutEmpty" class="checkoutEmpty">
+        Your cart is empty. <a href="shop.html">Go shopping</a>
+      </div>
+
+      <div id="checkoutContent" class="checkoutContent">
+        <div class="summary">
+          <div class="summary__title">Order summary</div>
+          <div id="summaryItems" class="summary__items"></div>
+          <div class="summary__total">
+            <span>Total</span>
+            <strong id="summaryTotal">$0.00</strong>
+          </div>
+        </div>
+
+        <div class="pay">
+          <div class="pay__title">Payment</div>
+          <div class="pay__note">
+            Stripe will collect email, phone and card details.
+          </div>
+
+          <div id="payButtons" class="pay__buttons"></div>
+
+          <div class="pay__small">
+            * Se você colocar 2 itens no carrinho, aparecem 2 botões (um por link Stripe).
+            Para “checkout com 2 itens juntos” teria que criar um Stripe Checkout Session (backend).
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CART DRAWER -->
+  <aside class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer__header">
+      <div class="drawer__title">Carrinho</div>
+      <button class="drawer__close" type="button" aria-label="Fechar carrinho">✕</button>
+    </div>
+    <div class="drawer__body">
+      <div id="cartItems" class="cartItems"></div>
+    </div>
+    <div class="drawer__footer">
+      <div class="drawer__total">
+        <span>Total</span>
+        <strong id="cartTotal">$0.00</strong>
+      </div>
+      <a class="ctaBtn" href="checkout.html">Checkout</a>
+      <div class="drawer__note">* Você escolhe o tamanho no produto antes de pagar.</div>
+    </div>
+  </aside>
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+  <script src="js/app.js"></script>
+  <script>
+    window.AppCheckout?.init();
+  </script>
+</body>
+</html>

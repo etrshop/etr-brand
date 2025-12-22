@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shop</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page page--shop">
+  <div class="bg"></div>
+  <div class="vignette"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Voltar para o ENTER">
+      <img class="brand__logo" src="assets/logo.png" alt="ETR logo">
+    </a>
+
+    <div class="topbar__right">
+      <button class="cartBtn" type="button" aria-label="Abrir carrinho">
+        <span class="cartBtn__icon">🛒</span>
+        <span class="cartCount" aria-label="Quantidade no carrinho">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="shop">
+    <section class="productGrid" aria-label="Produtos">
+      <!-- JAQUETA -->
+      <article class="productTile" data-sku="jacket">
+        <a class="productTile__media" href="product-jacket.html" aria-label="Abrir Jaqueta">
+          <img src="assets/product-jacket.png" alt="Jaqueta Black Chrome">
+        </a>
+        <div class="productTile__meta">
+          <div class="productTile__name">JAQUETA — BLACK CHROME</div>
+          <div class="productTile__sub">NEW IN · PREMIUM</div>
+        </div>
+        <div class="productTile__actions">
+          <div class="priceTag">$80.00</div>
+          <a class="pillBtn" href="product-jacket.html">Ver</a>
+        </div>
+      </article>
+
+      <!-- CALÇA -->
+      <article class="productTile" data-sku="pants">
+        <a class="productTile__media" href="product-pants.html" aria-label="Abrir Calça">
+          <img src="assets/product-pants.png" alt="Calça Black Chrome">
+        </a>
+        <div class="productTile__meta">
+          <div class="productTile__name">CALÇA — BLACK CHROME</div>
+          <div class="productTile__sub">NEW IN · PREMIUM</div>
+        </div>
+        <div class="productTile__actions">
+          <div class="priceTag">$90.00</div>
+          <a class="pillBtn" href="product-pants.html">Ver</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- CART DRAWER -->
+  <aside class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer__header">
+      <div class="drawer__title">Carrinho</div>
+      <button class="drawer__close" type="button" aria-label="Fechar carrinho">✕</button>
+    </div>
+    <div class="drawer__body">
+      <div id="cartItems" class="cartItems"></div>
+    </div>
+    <div class="drawer__footer">
+      <div class="drawer__total">
+        <span>Total</span>
+        <strong id="cartTotal">$0.00</strong>
+      </div>
+      <a class="ctaBtn" href="checkout.html">Checkout</a>
+      <div class="drawer__note">* Você escolhe o tamanho no produto antes de pagar.</div>
+    </div>
+  </aside>
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

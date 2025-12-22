@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calça</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page page--product">
+  <div class="bg"></div>
+  <div class="vignette"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Voltar para o ENTER">
+      <img class="brand__logo" src="assets/logo.png" alt="ETR logo">
+    </a>
+
+    <div class="topbar__right">
+      <a class="ghostLink" href="shop.html">← Voltar</a>
+      <button class="cartBtn" type="button" aria-label="Abrir carrinho">
+        <span class="cartBtn__icon">🛒</span>
+        <span class="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="product">
+    <section class="productView">
+      <div class="productView__image">
+        <img src="assets/product-pants.png" alt="Calça Black Chrome">
+      </div>
+
+      <div class="productView__info">
+        <h1 class="productTitle">PANTS — BLACK CHROME</h1>
+        <div class="productPrice">$90.00</div>
+
+        <div class="sizes">
+          <div class="sizes__label">Select size</div>
+          <div class="sizes__row" data-size-group>
+            <button class="sizeBtn" data-size="XS" type="button">XS</button>
+            <button class="sizeBtn" data-size="S" type="button">S</button>
+            <button class="sizeBtn" data-size="M" type="button">M</button>
+            <button class="sizeBtn" data-size="L" type="button">L</button>
+            <button class="sizeBtn" data-size="XL" type="button">XL</button>
+          </div>
+          <div class="sizes__selected">Selected size: <strong id="selectedSize">—</strong></div>
+        </div>
+
+        <div class="productActions">
+          <button class="ctaBtn" id="addPants" type="button">
+            Add to my cart
+          </button>
+          <div class="hint" id="hintPants"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CART DRAWER -->
+  <aside class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer__header">
+      <div class="drawer__title">Carrinho</div>
+      <button class="drawer__close" type="button" aria-label="Fechar carrinho">✕</button>
+    </div>
+    <div class="drawer__body">
+      <div id="cartItems" class="cartItems"></div>
+    </div>
+    <div class="drawer__footer">
+      <div class="drawer__total">
+        <span>Total</span>
+        <strong id="cartTotal">$0.00</strong>
+      </div>
+      <a class="ctaBtn" href="checkout.html">Checkout</a>
+      <div class="drawer__note">* Você escolhe o tamanho no produto antes de pagar.</div>
+    </div>
+  </aside>
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+  <script src="js/app.js"></script>
+  <script>
+    window.AppProductPage?.init({
+      sku: "pants",
+      name: "Pants — Black Chrome",
+      price: 90,
+      image: "assets/product-pants.png",
+      stripeLink: "https://buy.stripe.com/bJecMX5cy4l6dW4gqH5Rm08",
+      addBtnId: "addPants",
+      hintId: "hintPants",
+      selectedSizeId: "selectedSize",
+    });
+  </script>
+</body>
+</html>

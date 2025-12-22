@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ENTER</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page page--enter">
+  <div class="bg"></div>
+  <div class="vignette"></div>
+
+  <header class="topbar topbar--center">
+    <a class="brand brand--center" href="index.html" aria-label="Voltar ao início">
+      <img class="brand__logo brand__logo--big" src="assets/logo.png" alt="ETR logo">
+      
+    </a>
+  </header>
+
+  <main class="enter">
+    <button id="enterBtn" class="enter__btn" type="button" aria-label="Entrar na loja">
+      ENTER
+    </button>
+  </main>
+
+  <!-- LOADING -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="bird" aria-hidden="true">
+        <!-- pássaro simples em SVG -->
+        <svg viewBox="0 0 120 60" width="120" height="60">
+          <path d="M10 35 C25 10, 45 10, 60 30 C75 10, 95 10, 110 35"
+                fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="loader__text">Carregando…</div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
