@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calça</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page page--product">
+  <div class="bg"></div>
+  <div class="vignette"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <img class="brand__logo" src="assets/logo.png" alt="ETR logo">
+    </a>
+
+    <div class="topbar__right">
+      <a class="ghostLink" href="shop.html">← Voltar</a>
+      <button class="cartBtn" type="button">
+        <span class="cartBtn__icon">🛒</span>
+        <span class="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="product">
+    <section class="productView">
+
+      <div class="productView__image">
+        <div class="gallery">
+          <button class="gallery__nav gallery__nav--left">‹</button>
+
+          <div class="gallery__stage">
+            <img class="gallery__img is-active" src="assets/product-pants-2.png" alt="Calça - Frente">
+            <img class="gallery__img" src="assets/product-pants-2-back.png" alt="Calça - Costas">
+          </div>
+
+          <button class="gallery__nav gallery__nav--right">›</button>
+        </div>
+      </div>
+
+      <div class="productView__info">
+        <h1 class="productTitle">CALÇA — BLACK CHROME</h1>
+        <div class="productPrice">$96.00</div>
+
+        <div class="sizes">
+          <div class="sizes__label">Select size</div>
+          <div class="sizes__row" data-size-group>
+            <button class="sizeBtn" data-size="XS">XS</button>
+            <button class="sizeBtn" data-size="S">S</button>
+            <button class="sizeBtn" data-size="M">M</button>
+            <button class="sizeBtn" data-size="L">L</button>
+            <button class="sizeBtn" data-size="XL">XL</button>
+          </div>
+          <div class="sizes__selected">
+            Selected size: <strong id="selectedSize">—</strong>
+          </div>
+        </div>
+
+        <div class="productActions">
+          <button class="ctaBtn" id="addPants2" type="button">
+            Add to my cart
+          </button>
+          <div class="hint" id="hintPants2"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ✅ CARRINHO (OBRIGATÓRIO) -->
+  <aside class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer__header">
+      <div class="drawer__title">Carrinho</div>
+      <button class="drawer__close" type="button">✕</button>
+    </div>
+    <div class="drawer__body">
+      <div id="cartItems" class="cartItems"></div>
+    </div>
+    <div class="drawer__footer">
+      <div class="drawer__total">
+        <span>Total</span>
+        <strong id="cartTotal">$0.00</strong>
+      </div>
+      <a class="ctaBtn" href="checkout.html">Checkout</a>
+      <div class="drawer__note">
+        * Você escolhe o tamanho no produto antes de pagar.
+      </div>
+    </div>
+  </aside>
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+  <script src="js/app.js"></script>
+
+  <script>
+    window.AppProductPage?.init({
+      sku: "pants-2",
+      name: "Pants — Black Chrome",
+      price: 96,
+      image: "assets/product-pants-2.png",
+      stripeLink: "https://buy.stripe.com/9B68wH5cy04Q4lu5M35Rm0c",
+      addBtnId: "addPants2",
+      hintId: "hintPants2",
+      selectedSizeId: "selectedSize",
+    });
+  </script>
+
+  <script>
+    (function () {
+      const gallery = document.querySelector('.gallery');
+      const imgs = gallery.querySelectorAll('.gallery__img');
+      const prev = gallery.querySelector('.gallery__nav--left');
+      const next = gallery.querySelector('.gallery__nav--right');
+
+      let index = 0;
+      function show(i){
+        imgs.forEach(img => img.classList.remove('is-active'));
+        imgs[i].classList.add('is-active');
+      }
+
+      prev.onclick = () => {
+        index = (index - 1 + imgs.length) % imgs.length;
+        show(index);
+      };
+      next.onclick = () => {
+        index = (index + 1) % imgs.length;
+        show(index);
+      };
+    })();
+  </script>
+</body>
+</html>

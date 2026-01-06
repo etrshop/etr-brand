@@ -156,27 +156,32 @@
       });
 
       const addBtn = document.getElementById(cfg.addBtnId);
-      addBtn?.addEventListener("click", () => {
-        if (!selectedSize) {
-          if (hintEl) hintEl.textContent = "Please select a size.";
-          return;
-        }
-        const item = {
-          sku: cfg.sku,
-          name: cfg.name,
-          price: cfg.price,
-          image: cfg.image,
-          size: selectedSize,
-          qty: 1,
-          stripeLink: cfg.stripeLink,
-        };
-        const cart = loadCart();
-        cart.push(item);
-        saveCart(cart);
-        renderCart();
-        ui?.openCart?.();
-        if (hintEl) hintEl.textContent = `Added (Size ${selectedSize}).`;
-      });
+     addBtn?.addEventListener("click", () => {
+  if (!selectedSize) {
+    if (hintEl) hintEl.textContent = "Please select a size.";
+    return;
+  }
+
+  const item = {
+    sku: cfg.sku,
+    name: cfg.name,
+    price: cfg.price,
+    image: cfg.image,
+    size: selectedSize,
+    qty: 1,
+    stripeLink: cfg.stripeLink,
+  };
+
+  const cart = loadCart();
+  cart.push(item);
+  saveCart(cart);
+  renderCart();
+
+  ui?.openCart?.(); // ✅ AQUI, SÓ AQUI
+
+  if (hintEl) hintEl.textContent = `Added (Size ${selectedSize}).`;
+});
+
     }
   };
 
@@ -347,3 +352,33 @@
     document.querySelectorAll(".gallery").forEach(setupGallery);
   });
 })();
+
+
+const cartDrawer = document.getElementById('cartDrawer');
+const backdrop = document.getElementById('backdrop');
+
+function openCart() {
+  cartDrawer?.classList.add('is-open');
+  backdrop?.classList.add('is-on');
+}
+
+function closeCart() {
+  cartDrawer?.classList.remove('is-open');
+  backdrop?.classList.remove('is-on');
+}
+
+
+// 🔥 BOTÃO DO CARRINHO NO TOPO (FUNCIONA EM TODAS AS PÁGINAS)
+document.querySelectorAll('.cartBtn').forEach(btn => {
+  btn.addEventListener('click', openCart);
+});
+
+document.querySelector('.drawer__close')?.addEventListener('click', closeCart);
+backdrop?.addEventListener('click', closeCart);
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  ensureUI();
+  renderCart();
+  initEnter();
+});
