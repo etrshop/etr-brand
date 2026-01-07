@@ -11,18 +11,25 @@
   <div class="vignette"></div>
 
   <header class="topbar">
-    <a class="brand" href="index.html">
-      <img class="brand__logo" src="assets/logo.png" alt="ETR logo">
-    </a>
+  <a class="brand" href="index.html">
+    <img class="brand__logo" src="assets/logo.png" alt="ETR logo">
+  </a>
 
-    <div class="topbar__right">
-      <a class="ghostLink" href="shop.html">← Voltar</a>
-      <button class="cartBtn" type="button">
-        <span class="cartBtn__icon">🛒</span>
-        <span class="cartCount">0</span>
-      </button>
+  <div class="topbar__right">
+    <button class="cartBtn" type="button">
+      <span class="cartBtn__icon">🛒</span>
+      <span class="cartCount">0</span>
+    </button>
+
+    <!-- 🌍 PLANETA -->
+    <div class="lang">
+      <button class="lang__toggle" aria-label="Change language">🌍</button>
+      <div class="lang__menu">
+        <button data-lang="en">EN</button>
+      </div>
     </div>
-  </header>
+  </div>
+</header>
 
   <main class="product">
     <section class="productView">
@@ -41,7 +48,8 @@
       </div>
 
       <div class="productView__info">
-        <h1 class="productTitle">CALÇA — BLACK CHROME</h1>
+        <h1 class="productTitle" data-i18n="view_Pants">Pants — ESTUARDO
+        </h1>
         <div class="productPrice">$96.00</div>
 
         <div class="sizes">
@@ -82,7 +90,9 @@
         <span>Total</span>
         <strong id="cartTotal">$0.00</strong>
       </div>
-      <a class="ctaBtn" href="checkout.html">Checkout</a>
+      <a class="ctaBtn" href="checkout.html" data-i18n="view_Checkout">
+        Checkout
+      </a>
       <div class="drawer__note">
         * Você escolhe o tamanho no produto antes de pagar.
       </div>
@@ -128,5 +138,7 @@
       };
     })();
   </script>
+  <script src="js/app.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>

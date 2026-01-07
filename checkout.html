@@ -11,22 +11,30 @@
   <div class="vignette"></div>
 
   <header class="topbar">
-    <a class="brand" href="index.html" aria-label="Voltar para o ENTER">
-      <img class="brand__logo" src="assets/logo.png" alt="ETR logo">
-    </a>
+  <a class="brand" href="index.html">
+    <img class="brand__logo" src="assets/logo.png" alt="ETR logo">
+  </a>
 
-    <div class="topbar__right">
-      <a class="ghostLink" href="shop.html">← Back to shop</a>
-      <button class="cartBtn" type="button" aria-label="Abrir carrinho">
-        <span class="cartBtn__icon">🛒</span>
-        <span class="cartCount">0</span>
-      </button>
+  <div class="topbar__right">
+    <button class="cartBtn" type="button">
+      <span class="cartBtn__icon">🛒</span>
+      <span class="cartCount">0</span>
+    </button>
+
+    <!-- 🌍 PLANETA -->
+    <div class="lang">
+      <button class="lang__toggle" aria-label="Change language">🌍</button>
+      <div class="lang__menu">
+        <button data-lang="en">EN</button>
+      </div>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <main class="checkout">
     <section class="checkoutCard">
-      <h1 class="checkoutTitle">Checkout</h1>
+      <h1 class="checkoutTitle" data-i18n="checkout">Checkout</h1>
       <p class="checkoutSub">Complete your order with Stripe.</p>
 
       <div id="checkoutEmpty" class="checkoutEmpty">
@@ -35,7 +43,10 @@
 
       <div id="checkoutContent" class="checkoutContent">
         <div class="summary">
-          <div class="summary__title">Order summary</div>
+          <div class="summary__title" data-i18n="order_summary"> 
+            Order summary
+          </div>
+
           <div id="summaryItems" class="summary__items"></div>
           <div class="summary__total">
             <span>Total</span>
@@ -44,7 +55,10 @@
         </div>
 
         <div class="pay">
-          <div class="pay__title">Payment</div>
+          <div class="pay__title" data-i18n="Payment">
+            Payment
+          </div>
+
           <div class="pay__note">
             Stripe will collect email, phone and card details.
           </div>
@@ -63,7 +77,9 @@
   <!-- CART DRAWER -->
   <aside class="drawer" id="cartDrawer" aria-hidden="true">
     <div class="drawer__header">
-      <div class="drawer__title">Carrinho</div>
+      <div class="drawer__title" data-i18n="view_Cart">
+        Carrinho
+      </div>
       <button class="drawer__close" type="button" aria-label="Fechar carrinho">✕</button>
     </div>
     <div class="drawer__body">
@@ -74,7 +90,9 @@
         <span>Total</span>
         <strong id="cartTotal">$0.00</strong>
       </div>
-      <a class="ctaBtn" href="checkout.html">Checkout</a>
+      <a class="ctaBtn" href="checkout.html" data-i18n="view_Checkout">
+        Checkout
+      </a>
       <div class="drawer__note">* Você escolhe o tamanho no produto antes de pagar.</div>
     </div>
   </aside>
@@ -84,5 +102,6 @@
   <script>
     window.AppCheckout?.init();
   </script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>

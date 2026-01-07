@@ -11,17 +11,25 @@
   <div class="vignette"></div>
 
   <header class="topbar">
-    <a class="brand" href="index.html" aria-label="Voltar para o ENTER">
-      <img class="brand__logo" src="assets/logo.png" alt="ETR logo">
-    </a>
+  <a class="brand" href="index.html">
+    <img class="brand__logo" src="assets/logo.png" alt="ETR logo">
+  </a>
 
-    <div class="topbar__right">
-      <button class="cartBtn" type="button" aria-label="Abrir carrinho">
-        <span class="cartBtn__icon">🛒</span>
-        <span class="cartCount" aria-label="Quantidade no carrinho">0</span>
-      </button>
+  <div class="topbar__right">
+    <button class="cartBtn" type="button">
+      <span class="cartBtn__icon">🛒</span>
+      <span class="cartCount">0</span>
+    </button>
+
+    <!-- 🌍 PLANETA -->
+    <div class="lang">
+      <button class="lang__toggle" aria-label="Change language">🌍</button>
+      <div class="lang__menu">
+        <button data-lang="en">EN</button>
+      </div>
     </div>
-  </header>
+  </div>
+</header>
 
   <main class="shop">
     <section class="productGrid" aria-label="Produtos">
@@ -31,12 +39,18 @@
           <img src="assets/product-jacket.png" alt="Jaqueta Black Chrome">
         </a>
         <div class="productTile__meta">
-          <div class="productTile__name">JAQUETA — BLACK CHROME</div>
-          <div class="productTile__sub">NEW IN · PREMIUM</div>
+          <div class="productTile__name" data-i18n="product_Jacket">
+            JACKET — BLACK CHROME
+          </div>
+
+          <div class="productTile__sub" data-i18n="product_NEW">
+            NEW IN · PREMIUM
+          </div>
+
         </div>
         <div class="productTile__actions">
           <div class="priceTag">$80.00</div>
-          <a class="pillBtn" href="product-jacket.html">Ver</a>
+          <a class="pillBtn" href="product-jacket.html">CHECK</a>
         </div>
       </article>
 
@@ -46,12 +60,15 @@
           <img src="assets/product-pants.png" alt="Calça Black Chrome">
         </a>
         <div class="productTile__meta">
-          <div class="productTile__name">CALÇA — BLACK CHROME</div>
-          <div class="productTile__sub">NEW IN · PREMIUM</div>
+          <div class="productTile__name" data-i18n="product_pants">CALÇA — ESTUARDO</div>
+          <div class="productTile__sub" data-i18n="product_NEW">
+            NEW IN · PREMIUM
+          </div>
+
         </div>
         <div class="productTile__actions">
           <div class="priceTag">$90.00</div>
-          <a class="pillBtn" href="product-pants.html">Ver</a>
+          <a class="pillBtn" href="product-pants.html" data-i18n="view_product">CHECK</a>
         </div>
       </article>
 
@@ -61,12 +78,18 @@
     <img src="assets/product-shirt.png" alt="Camisa Black Chrome">
   </a>
   <div class="productTile__meta">
-    <div class="productTile__name">CAMISA — BLACK CHROME</div>
-    <div class="productTile__sub">NEW IN · PREMIUM</div>
+    <div class="productTile__name" data-i18n="product_hoodie">
+      HOODIE — ESTUARDO
+    </div>
+
+    <div class="productTile__sub" data-i18n="product_NEW">
+      NEW IN · PREMIUM
+    </div>
+
   </div>
   <div class="productTile__actions">
     <div class="priceTag">$85.00</div>
-    <a class="pillBtn" href="product-shirt.html">Ver</a>
+    <a class="pillBtn" href="product-shirt.html">CHECK</a>
   </div>
 </article>
 
@@ -76,12 +99,16 @@
     <img src="assets/product-pants-2.png" alt="Calça 02 Black Chrome">
   </a>
   <div class="productTile__meta">
-    <div class="productTile__name">CALÇA — BLACK CHROME</div>
-    <div class="productTile__sub">NEW IN · PREMIUM</div>
+    <div class="productTile__name">PANTS — ESTUARDO</div>
+
+    <div class="productTile__sub" data-i18n="product_NEW">
+      NEW IN · PREMIUM
+    </div>
+
   </div>
   <div class="productTile__actions">
     <div class="priceTag">$96.00</div>
-    <a class="pillBtn" href="product-pants-2.html">Ver</a>
+    <a class="pillBtn" href="product-pants-2.html" data-i18n="product_viwer">CHECK</a>
   </div>
 </article>
     </section>
@@ -90,7 +117,10 @@
   <!-- CART DRAWER -->
   <aside class="drawer" id="cartDrawer" aria-hidden="true">
     <div class="drawer__header">
-      <div class="drawer__title">Carrinho</div>
+      <div class="drawer__title" data-i18n="product_cart">
+        Carrinho
+      </div>
+
       <button class="drawer__close" type="button" aria-label="Fechar carrinho">✕</button>
     </div>
     <div class="drawer__body">
@@ -101,12 +131,13 @@
         <span>Total</span>
         <strong id="cartTotal">$0.00</strong>
       </div>
-      <a class="ctaBtn" href="checkout.html">Checkout</a>
+      <a class="ctaBtn" href="checkout.html" data-i18n="product_Checkout">Checkout</a>
       <div class="drawer__note">* Você escolhe o tamanho no produto antes de pagar.</div>
     </div>
   </aside>
   <div class="backdrop" id="backdrop" aria-hidden="true"></div>
 
   <script src="js/app.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>

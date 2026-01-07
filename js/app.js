@@ -385,3 +385,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 initJacketGallery();
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".lang__toggle");
+  const menu = document.querySelector(".lang__menu");
+
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener("click", () => {
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+  });
+
+  menu.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      setLanguage(btn.dataset.lang);
+      menu.style.display = "none";
+    });
+  });
+});

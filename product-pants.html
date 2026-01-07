@@ -11,18 +11,25 @@
   <div class="vignette"></div>
 
   <header class="topbar">
-    <a class="brand" href="index.html" aria-label="Voltar para o ENTER">
-      <img class="brand__logo" src="assets/logo.png" alt="ETR logo">
-    </a>
+  <a class="brand" href="index.html">
+    <img class="brand__logo" src="assets/logo.png" alt="ETR logo">
+  </a>
 
-    <div class="topbar__right">
-      <a class="ghostLink" href="shop.html">← Voltar</a>
-      <button class="cartBtn" type="button" aria-label="Abrir carrinho">
-        <span class="cartBtn__icon">🛒</span>
-        <span class="cartCount">0</span>
-      </button>
+  <div class="topbar__right">
+    <button class="cartBtn" type="button">
+      <span class="cartBtn__icon">🛒</span>
+      <span class="cartCount">0</span>
+    </button>
+
+    <!-- 🌍 PLANETA -->
+    <div class="lang">
+      <button class="lang__toggle" aria-label="Change language">🌍</button>
+      <div class="lang__menu">
+        <button data-lang="en">EN</button>
+      </div>
     </div>
-  </header>
+  </div>
+</header>
 
   <main class="product">
     <section class="productView">
@@ -31,7 +38,9 @@
       </div>
 
       <div class="productView__info">
-        <h1 class="productTitle">PANTS — BLACK CHROME</h1>
+        <h1 class="productTitle" data-i18n="view_PANTS">
+          PANTS — BLACK CHROME
+        </h1>
         <div class="productPrice">$90.00</div>
 
         <div class="sizes">
@@ -43,11 +52,11 @@
             <button class="sizeBtn" data-size="L" type="button">L</button>
             <button class="sizeBtn" data-size="XL" type="button">XL</button>
           </div>
-          <div class="sizes__selected">Selected size: <strong id="selectedSize">—</strong></div>
+          <div class="sizes__selected" data-i18n="view_Selected_size">Selected size: <strong id="selectedSize">—</strong></div>
         </div>
 
         <div class="productActions">
-          <button class="ctaBtn" id="addPants" type="button">
+          <button class="ctaBtn" id="addPants" type="button" data-i18n="view_Add_to_cart">
             Add to my cart
           </button>
           <div class="hint" id="hintPants"></div>
@@ -59,7 +68,10 @@
   <!-- CART DRAWER -->
   <aside class="drawer" id="cartDrawer" aria-hidden="true">
     <div class="drawer__header">
-      <div class="drawer__title">Carrinho</div>
+      <div class="drawer__title" data-i18n="view_Cart">
+        Carrinho
+      </div>
+
       <button class="drawer__close" type="button" aria-label="Fechar carrinho">✕</button>
     </div>
     <div class="drawer__body">
@@ -70,7 +82,10 @@
         <span>Total</span>
         <strong id="cartTotal">$0.00</strong>
       </div>
-      <a class="ctaBtn" href="checkout.html">Checkout</a>
+      <a class="ctaBtn" href="checkout.html" data-i18n="view_Checkout">
+        Checkout
+      </a>
+
       <div class="drawer__note">* Você escolhe o tamanho no produto antes de pagar.</div>
     </div>
   </aside>
@@ -89,5 +104,7 @@
       selectedSizeId: "selectedSize",
     });
   </script>
+  <script src="js/app.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>
