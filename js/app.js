@@ -276,33 +276,33 @@
 })();
 
 
-// ===== Gallery (jaqueta frente/costas) =====
-(function initJacketGallery(){
-  const gallery = document.querySelector(".gallery");
+function initJacketGallery() {
+  const gallery = document.querySelector('.gallery');
   if (!gallery) return;
 
-  const track = gallery.querySelector(".gallery__track");
-  const btnPrev = gallery.querySelector(".gallery__nav--left");
-  const btnNext = gallery.querySelector(".gallery__nav--right");
+  const images = gallery.querySelectorAll('.gallery__img');
+  const prev = gallery.querySelector('.gallery__nav--left');
+  const next = gallery.querySelector('.gallery__nav--right');
 
-  let index = 0; // 0 = frente, 1 = costas
+  if (!images.length || !prev || !next) return;
 
-  function render(){
-    track.style.transform = `translateX(-${index * 100}%)`;
+  let index = 0;
+
+  function show(i) {
+    images.forEach(img => img.classList.remove('is-active'));
+    images[i].classList.add('is-active');
   }
 
-  btnPrev?.addEventListener("click", () => {
-    index = (index - 1 + 2) % 2;
-    render();
+  prev.addEventListener('click', () => {
+    index = (index - 1 + images.length) % images.length;
+    show(index);
   });
 
-  btnNext?.addEventListener("click", () => {
-    index = (index + 1) % 2;
-    render();
+  next.addEventListener('click', () => {
+    index = (index + images.length) % images.length;
+    show(index);
   });
-
-  render();
-})();
+}
 
 
 // =========================
@@ -382,3 +382,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCart();
   initEnter();
 });
+
+
+initJacketGallery();
